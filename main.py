@@ -5,12 +5,12 @@ from pyrogram.errors import UserChannelsTooMuch,UserAlreadyParticipant,UserIsBlo
 from pyrogram.types import ChatJoinRequest, InlineKeyboardButton, InlineKeyboardMarkup
 from funcs import *
 
-ch1_link=os.environ.get('CH1_LINK','https://t.me/+IETklb-PG08xYTBl')
-ch2_link=os.environ.get('CH2_LINK','https://t.me/+IETklb-PG08xYTBl')
+ch1_link=os.environ.get('CH1_LINK','https://t.me/+OuZlp7jlYx01NDU9')
+ch2_link=os.environ.get('CH2_LINK','https://t.me/+OuZlp7jlYx01NDU9')
 
 
 ch1_title=os.environ.get('CH1_TITLE','🍿 All Movies Uploaded Here 🍿')
-ch2_title=os.environ.get('CH2_TITLE',"🔞 Sunny Leone XXX Video's 🔞")
+ch2_title=os.environ.get('CH2_TITLE',"🍿 Request Movies Here 🍿")
 
 
 BOT_TOKEN=os.environ.get('BOT_TOKEN','5631379160:AAEHUFFqtf3grBojpmFwmJaXwzNd2nop9s4')

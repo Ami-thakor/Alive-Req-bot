@@ -28,7 +28,7 @@ def start_cmd(_, M):
     #button2 = [[ InlineKeyboardButton("🆎 About", callback_data="aboutbtn"), InlineKeyboardButton("🆘 Help", callback_data="helpbtn") ],]
     text = f"Hello {M.from_user.mention} 👋\n\nI'm an auto approve Admin Join Requests Bot.\n\n<b>I can approve users in Groups/Channels.</b>Add me to your chat and promote me to admin with add members permission."
     app.send_photo(
-        M.chat.id, 'AgACAgEAAxkBAAMrY2kf8xOY7TNIdqa91Mbjxm5jhMAAAiGqMRtCTUlHCF1quWgHoiIACAEAAwIAA3kABx4E', text)
+        M.chat.id, 'https://te.legra.ph/file/9ccb06149e194ba2f38d7.jpg', text)
 
 
 @app.on_message(filters.command(['user','users']) & filters.user(sudo_users))

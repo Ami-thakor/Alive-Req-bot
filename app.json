@@ -1,0 +1,28 @@
+{
+    "name": "Reqbots",
+    "description": "Reqbot.",
+    "repository": "https://github.com/crazebotz/Reqbot",
+    "keywords": [
+        "telegram",
+        "bot",
+        "trim"
+    ],
+    "env": {
+        "BOT_TOKEN": {
+            "description": "Telegram Bot Token",
+            "required": false
+        }
+    },
+    "addons": [],
+    "buildpacks": [
+        {
+            "url": "heroku/python"
+        }
+    ],
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "eco"
+        }
+    }
+}

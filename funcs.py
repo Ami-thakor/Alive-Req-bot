@@ -1,21 +1,24 @@
-import pymongo
-from pymongo.errors import DuplicateKeyError
 import os
-# ------------Database----------
-DB_URL = "mongodb+srv://admin:admin@myusers.jw5vph4.mongodb.net/?retryWrites=true&w=majority"
+import motor.motor_asyncio
 
-DB_URL=os.environ.get("DB_URL")
-myclient = pymongo.MongoClient(DB_URL)
-mydb = myclient["myusers"]
+DB_URL = os.environ.get("DB_URL","mongodb+srv://admin:rahul@myusers.qsyvptv.mongodb.net/?retryWrites=true&w=majority")
+myclient = motor.motor_asyncio.AsyncIOMotorClient(DB_URL)
+mydb = myclient["KingReqBot"]
 mycol = mydb["users"]
-users_collection = myclient["myusers"]["users"]
+users_collection = mydb["users"]
 
-
-def add_user(message):
+async def add_user(message):
     try:
         userDATA = {"_id": message.id, "name": message.first_name}
-        mycol.insert_one(userDATA)
-    except DuplicateKeyError:
+        await mycol.insert_one(userDATA)
+    except motor.motor_asyncio.DuplicateKeyError:
         pass
     except Exception as ex:
         print(ex)
+
+async def getid():
+    values = []
+    async for key in mycol.find():
+        id_ = key["_id"]
+        values.append((id_))
+    return values

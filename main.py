@@ -21,7 +21,7 @@ API_HASH = '40bd8634b3836468bb2fb7eafe39d81a'
 app = Client("KingReqBot", api_id=API_ID,
              api_hash=API_HASH, bot_token=BOT_TOKEN)
 
-sudo_users = [1953040213, 5144980226, 874964742,
+sudo_users = [5426524225, 5144980226, 874964742,
               839221827, 5294965763, 1195182155]
 
 

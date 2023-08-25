@@ -3,7 +3,7 @@ import os
 import time
 from pyrogram import Client, filters
 from pyrogram.errors import UserChannelsTooMuch, UserAlreadyParticipant, UserIsBlocked
-from pyrogram.types import ChatJoinRequest, InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram.types import ChatJoinRequest, InlineKeyboardButton, InlineKeyboardMarkup, Message
 
 from funcs import *
 
@@ -21,7 +21,7 @@ API_HASH = '40bd8634b3836468bb2fb7eafe39d81a'
 app = Client("KingReqBot", api_id=API_ID,
              api_hash=API_HASH, bot_token=BOT_TOKEN)
 
-sudo_users = [5426524225, 5144980226, 874964742,
+sudo_users = [1953040213, 5144980226, 874964742,
               839221827, 5294965763, 1195182155]
 
 
@@ -35,6 +35,14 @@ async def start_cmd(_, M):
 async def user_cmd(_, M):
     total_docs = await users_collection.count_documents({})
     await M.reply_text(f"Total Users: {total_docs}")
+
+
+@app.on_message(~filters.media & ~filters.photo & ~filters.text)
+async def delete_service(_, msg: Message):
+    try:
+        await msg.delete()
+    except:
+        pass
 
 
 @app.on_message(
@@ -90,23 +98,28 @@ button = [[InlineKeyboardButton(f"{ch1_title}", url=f"{ch1_link}")],
 
 
 @app.on_chat_join_request()
-async def reqs_handler(client: app, message: ChatJoinRequest):
+async def reqs_handler(_, message: ChatJoinRequest):
     CHAT = message.chat
     USER = message.from_user
 
     try:
         await app.approve_chat_join_request(CHAT.id, USER.id)
-        await app.send_photo(USER.id, PHOTO_URL, CAPTION, reply_markup=InlineKeyboardMarkup(button))
-        # await app.send_message(USER.id, f'<b>Hello</b> {USER.mention}\n\nYour Request To Join <b>{CHAT.title}</b> has been approved!', reply_markup=InlineKeyboardMarkup(button))
+
         await add_user(USER)
+        try:
+            await app.send_photo(USER.id, PHOTO_URL, CAPTION, reply_markup=InlineKeyboardMarkup(button))
+        except:
+            pass
 
     except UserChannelsTooMuch:
         pass
     except UserAlreadyParticipant:
         pass
 
-    except Exception as ex:
+    except:
         pass
+        # print(ex)
+
 
 print("Bot started :)")
 app.run()

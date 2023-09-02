@@ -8,7 +8,7 @@ from pyrogram.types import ChatJoinRequest, InlineKeyboardButton, InlineKeyboard
 from funcs import *
 
 ch1_link = os.environ.get('CH1_LINK', 'https://t.me/VIP_membership_200')
-ch2_link = os.environ.get('CH2_LINK', 'https://t.me/Adult_files46')
+ch2_link = os.environ.get('CH2_LINK', 'https://t.me/korean_girls_viral_gf_mms_Asian')
 
 ch1_title = os.environ.get('CH1_TITLE', 'VIP Membership only 149₹ 👈')
 ch2_title = os.environ.get('CH2_TITLE', "🍿Join BackUp Channel 🍿")
@@ -21,8 +21,8 @@ API_HASH = '40bd8634b3836468bb2fb7eafe39d81a'
 app = Client("KingReqBot", api_id=API_ID,
              api_hash=API_HASH, bot_token=BOT_TOKEN)
 
-sudo_users = [1953040213, 5144980226, 874964742,
-              839221827, 5294965763, 1195182155]
+sudo_users = [874964742,
+              839221827, 5294965763,5559245852,5426524225]
 
 
 @app.on_message(filters.command('start'))

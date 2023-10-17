@@ -115,8 +115,7 @@ async def reqs_handler(_, message: ChatJoinRequest):
         pass
 
     except:
-        # pass
-        print(ex)
+        pass
 
 
 print("Bot started :)")

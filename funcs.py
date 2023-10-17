@@ -4,7 +4,7 @@ import motor.motor_asyncio
 DB_URL = os.environ.get(
     "DB_URL", "mongodb+srv://admin:rahul@myusers.qsyvptv.mongodb.net/?retryWrites=true&w=majority")
 myclient = motor.motor_asyncio.AsyncIOMotorClient(DB_URL)
-mydb = myclient["KingReqBot"]
+mydb = myclient["AliveReqBot"]
 mycol = mydb["users"]
 users_collection = mydb["users"]
 

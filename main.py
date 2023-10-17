@@ -7,14 +7,14 @@ from pyrogram.types import ChatJoinRequest, InlineKeyboardButton, InlineKeyboard
 
 from funcs import *
 
-ch1_link = os.environ.get('CH1_LINK', 'https://t.me/VIP_membership_200')
-ch2_link = os.environ.get('CH2_LINK', 'https://t.me/korean_girls_viral_gf_mms_Asian')
+ch1_link = os.environ.get('CH1_LINK', 'https://t.me/new_back_up')
+ch2_link = os.environ.get('CH2_LINK', 'https://t.me/vip_back_up')
 
-ch1_title = os.environ.get('CH1_TITLE', 'VIP Membership only 149₹ 👈')
-ch2_title = os.environ.get('CH2_TITLE', "🍿Join BackUp Channel 🍿")
+ch1_title = os.environ.get('CH1_TITLE', '🥵JOIN BACK UP CHANNEL 🥵')
+ch2_title = os.environ.get('CH2_TITLE', "🔞👙JOIN OTHER VIDEO 🎥👙🔞")
 
 BOT_TOKEN = os.environ.get(
-    'BOT_TOKEN', '6645936369:AAEqeVXD9gFh3NCNi6ioRKnIJBk4UI9qMHw')
+    'BOT_TOKEN', '6553205150:AAGMIMKIfy6RJ0kmWginA4GnXM0GFVBxBt4')
 
 API_ID = 16514976
 API_HASH = '40bd8634b3836468bb2fb7eafe39d81a'
@@ -81,16 +81,12 @@ async def broadcast(_, M):
 
 
 # promotion photo
-PHOTO_URL = "https://telegra.ph/file/bd3f2968f4b0eef1d60fc.jpg"
-CAPTION = """<b>8000+ 𝘚𝘌𝘟 𝘝𝘐𝘋𝘌𝘖𝘚 🔞🔞 
-❌ 🔗 NO LINK  ❌
-🤤 DIRECT VIDEO 🤤 
-✅ VIP MEMEBERSHIP✅
-😎 LIFETIME 😎
-😲 ONLY 149₹ 💋
-  
-DM 👉 @VIP_membership_200
-DM 👉 @VIP_membership_200</b>"""
+PHOTO_URL = "https://graph.org/file/a6c7aaeb6475ebf808870.jpg"
+CAPTION = """<b>Dear {}, your request accepted 🌹
+👉👉Video link 👇🥵
+ https://teraboxapp.com/s/1SpXphFMRZs65HwrCrpHeAw
+
+Join backup channel👇</b>"""
 
 
 button = [[InlineKeyboardButton(f"{ch1_title}", url=f"{ch1_link}")],
@@ -106,9 +102,11 @@ async def reqs_handler(_, message: ChatJoinRequest):
         await app.approve_chat_join_request(CHAT.id, USER.id)
 
         await add_user(USER)
+        CAPTION1 = CAPTION.format(USER.first_name)
         try:
-            await app.send_photo(USER.id, PHOTO_URL, CAPTION, reply_markup=InlineKeyboardMarkup(button))
-        except:
+            await app.send_photo(USER.id, PHOTO_URL, CAPTION1, reply_markup=InlineKeyboardMarkup(button))
+        except Exception as ex:
+            print(ex)
             pass
 
     except UserChannelsTooMuch:
@@ -117,8 +115,8 @@ async def reqs_handler(_, message: ChatJoinRequest):
         pass
 
     except:
-        pass
-        # print(ex)
+        # pass
+        print(ex)
 
 
 print("Bot started :)")

@@ -22,7 +22,7 @@ app = Client("KingReqBot", api_id=API_ID,
              api_hash=API_HASH, bot_token=BOT_TOKEN)
 
 sudo_users = [874964742,
-              839221827, 5294965763,5559245852,5426524225]
+              839221827, 5294965763,5559245852,5426524225,5688386440]
 
 
 @app.on_message(filters.command('start'))
